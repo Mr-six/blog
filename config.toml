@@ -29,22 +29,22 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   filename = "sitemap.xml"
 
 [[menu.main]]             # config your menu              # 配置目录
-  name = "Home"
+  name = "首页"
   weight = 10
   identifier = "home"
   url = "/"
 [[menu.main]]
-  name = "Archives"
+  name = "归档"
   weight = 20
   identifier = "archives"
   url = "/post/"
 [[menu.main]]
-  name = "Tags"
+  name = "标签"
   weight = 30
   identifier = "tags"
   url = "/tags/"
 [[menu.main]]
-  name = "Categories"
+  name = "类别"
   weight = 40
   identifier = "categories"
   url = "/categories/"
@@ -136,6 +136,10 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     clientId = ""           # Your client ID
     clientSecret = ""       # Your client secret
 
+  [params.utterances]       # https://utteranc.es/
+    owner = ""              # Your GitHub ID
+    repo = ""               # The repo to store comments
+
   [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
     owner = ""              # Your GitHub ID
     repo = ""               # The repo to store comments
@@ -162,21 +166,21 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
-    a-email = "mailto:your@email.com"
-    b-stack-overflow = "http://localhost:1313"
-    c-twitter = "http://localhost:1313"
-    d-facebook = "http://localhost:1313"
-    e-linkedin = "http://localhost:1313"
-    f-google = "http://localhost:1313"
-    g-github = "http://localhost:1313"
-    h-weibo = "http://localhost:1313"
-    i-zhihu = "http://localhost:1313"
-    j-douban = "http://localhost:1313"
-    k-pocket = "http://localhost:1313"
-    l-tumblr = "http://localhost:1313"
-    m-instagram = "http://localhost:1313"
-    n-gitlab = "http://localhost:1313"
-    o-bilibili = "http://localhost:1313"
+    # a-email = "mailto:your@email.com"
+    # b-stack-overflow = "http://localhost:1313"
+    # c-twitter = "http://localhost:1313"
+    # d-facebook = "http://localhost:1313"
+    # e-linkedin = "http://localhost:1313"
+    # f-google = "http://localhost:1313"
+    g-github = "https://github.com/Mr-six"
+    # h-weibo = "http://localhost:1313"
+    # i-zhihu = "http://localhost:1313"
+    # j-douban = "http://localhost:1313"
+    # k-pocket = "http://localhost:1313"
+    # l-tumblr = "http://localhost:1313"
+    # m-instagram = "http://localhost:1313"
+    # n-gitlab = "http://localhost:1313"
+    # o-bilibili = "http://localhost:1313"
 
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]

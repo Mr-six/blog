@@ -5,3 +5,6 @@ draft: false
 ---
 
 hello hugo!
+
+两年，再次出发~
+--你好hugo
