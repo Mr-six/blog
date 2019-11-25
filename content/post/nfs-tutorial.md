@@ -9,16 +9,21 @@ tags: ['网络']
 
 在折腾过在线播放plex，Samba，NFS之后，最终决定使用NFS作为局域网共享服务。
 
-开始之前首先需要介绍一下 `/etc/fsta` 文件
+开始之前首先需要介绍一下 `/etc/fstab` 文件
 
 fstab文件可用于定义磁盘分区，各种其他块设备或远程文件系统应如何装入文件系统。
-## `/etc/fsta`示例
+## `/etc/fstab`示例
 ```
 # <file system>        <dir>    <type>    <options>    <dump> <pass>
 UUID=0005B7D20000BFA9  /test     ext4     defaults       0      0
 ```
 
-## `/etc/fsta`字段定义：
+## 查看磁盘 UUID
+```
+lsblk -f
+```
+
+## `/etc/fstab`字段定义：
 
 
 - `<file systems>` - 要挂载的分区或存储设备.
@@ -57,7 +62,7 @@ UUID=0005B7D20000BFA9  /test     ext4     defaults       0      0
 编辑/etc/fstab文件 （使用`lsblk -f`查看设备UUID）
 ```
 sudo vi /etc/fstab
-UUID=0005B7D20000BFA9  /home/user/volume/test ntfs defaults 0 2
+UUID=0005B7D20000BFA9  /home/user/volume/test ntfs defaults 0 0
 # 刷新挂载
 sudo mount -a
 ```
@@ -71,7 +76,7 @@ sudo apt-get update && sudo apt install -y nfs-kernel-server
 ## 编辑NFS配置文件
 ```
 sudo vi /etc/exports
-/home/user/volume/test *(rw,sync,insecure,no_root_squash,no_subtree_check)
+/home/user/volume/test *(rw,sync,all_squash)
 
 # 重载配置
 sudo exportfs -a
@@ -86,10 +91,10 @@ win10 本身自带 NFS 服务，但是需要手动开启（中文会有乱码，
 
 ## mac 自动挂载
 
-mac 同样 编辑 `/etc/fsta` 写入需要挂载的网络位置即可
+mac 同样 编辑 `/etc/fstab` 写入需要挂载的网络位置即可
 
 ```
-sudo vi /etc/fsta
+sudo vi /etc/fstab
 192.168.123.***:/home/user/volume/test    /test    nfs    defaults  0 0
 sudo mount -a
 ```
