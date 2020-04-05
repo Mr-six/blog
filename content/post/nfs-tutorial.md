@@ -87,7 +87,7 @@ sudo systemctl restart nfs-kernel-server
 
 ## window 10 自动挂载NFS
 
-win10 本身自带 NFS 服务，但是需要手动开启（中文会有乱码，可以参考后面的方法） [参考](https://hkc.nasclub.vip/wordpress/?p=513)`
+win10 本身自带 NFS 服务，但是需要手动开启（中文会有乱码，可以参考后面的方法） [参考](https://hkc.nasclub.vip/wordpress/?p=513)
 
 ## mac 自动挂载
 
