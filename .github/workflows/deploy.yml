@@ -24,10 +24,10 @@ jobs:
         run: hugo --minify
         env:
           HUGO_PARAMS_baiduAnalytics: ${{ secrets.HUGO_PARAMS_baiduAnalytics }}
-          HUGO_PARAMS_gitalk_clientId: ${{ secrets.HUGO_PARAMS_gitalk_clientId }}
-          HUGO_PARAMS_gitalk_clientSecret: ${{ secrets.HUGO_PARAMS_gitalk_clientSecret }}
-          HUGO_PARAMS_gitalk_owner: ${{ secrets.HUGO_PARAMS_gitalk_owner }}
-          HUGO_PARAMS_gitalk_repo: ${{ secrets.HUGO_PARAMS_gitalk_repo }}
+          # HUGO_PARAMS_gitalk_clientId: ${{ secrets.HUGO_PARAMS_gitalk_clientId }}
+          # HUGO_PARAMS_gitalk_clientSecret: ${{ secrets.HUGO_PARAMS_gitalk_clientSecret }}
+          # HUGO_PARAMS_gitalk_owner: ${{ secrets.HUGO_PARAMS_gitalk_owner }}
+          # HUGO_PARAMS_gitalk_repo: ${{ secrets.HUGO_PARAMS_gitalk_repo }}
 
       - name: Deploy
         uses: garygrossgarten/github-action-scp@release
