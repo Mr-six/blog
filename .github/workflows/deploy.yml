@@ -1,0 +1,40 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.62.2'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+        env:
+          HUGO_PARAMS_baiduAnalytics: ${{ secrets.HUGO_PARAMS_baiduAnalytics }}
+          HUGO_PARAMS_gitalk_clientId: ${{ secrets.HUGO_PARAMS_gitalk_clientId }}
+          HUGO_PARAMS_gitalk_clientSecret: ${{ secrets.HUGO_PARAMS_gitalk_clientSecret }}
+          HUGO_PARAMS_gitalk_owner: ${{ secrets.HUGO_PARAMS_gitalk_owner }}
+          HUGO_PARAMS_gitalk_repo: ${{ secrets.HUGO_PARAMS_gitalk_repo }}
+
+      - name: Deploy
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: 'public'
+          remote: ${{ secrets.TARGET }}
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.SSH_KEY }}
