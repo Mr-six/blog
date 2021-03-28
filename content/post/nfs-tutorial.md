@@ -62,7 +62,7 @@ lsblk -f
 编辑/etc/fstab文件 （使用`lsblk -f`查看设备UUID）
 ```
 sudo vi /etc/fstab
-UUID=0005B7D20000BFA9  /home/user/volume/test ntfs defaults 0 0
+UUID=0005B7D20000BFA9  /home/user/volume/test ntfs rw,auto,nobrowse,nofail 0 0
 # 刷新挂载
 sudo mount -a
 ```
@@ -76,7 +76,7 @@ sudo apt-get update && sudo apt install -y nfs-kernel-server
 ## 编辑NFS配置文件
 ```
 sudo vi /etc/exports
-/home/user/volume/test *(rw,sync,all_squash)
+/home/user/volume/test *(rw,sync,all_squash,no_subtree_check)
 
 # 重载配置
 sudo exportfs -a
